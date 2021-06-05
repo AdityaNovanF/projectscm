@@ -64,4 +64,38 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,kper,kpem,supplier']], f
     Route::delete('/deletedata/{id}', 'Eventcontroller@destroy');
 });
 
+Route::group(['middleware' => ['auth', 'checkRole:kper']], function () {
+    Route::get('KPerumahan/home', 'PerumahanController@home');
+    // Bahan Bangunan
+    Route::get('/KPerumahan/bahanBangunan', 'BahanController@data');
+    Route::get('/cariBahan', 'BahanController@cari');
+    // Pesanan
+    Route::get('/KPerumahan/pesanan', 'PesananController@data');
+    // Supplier
+    Route::get('/dataSupplier', 'SupplierController@data');
+    Route::get('/cariSupplier', 'SupplierController@cari');
+    Route::get('/Supplier/form', 'SupplierController@form');
+    Route::post('/Supplier/tambah', 'SupplierController@tambah');
+    Route::get('/Supplier/edit/{id}', 'SupplierController@edit');
+    Route::post('/Supplier/update/{id}', 'SupplierController@update');
+    Route::delete('/Supplier/hapus/{id}', 'SupplierController@hapus');
+    Route::get('/KPerumahan/detail/{id}', 'SupplierController@detail');
+    Route::get('/cariBarang', 'BarangController@cari');
+    // Kepala Pembangunan
+    Route::get('/dataKPembangunan', 'KPembangunanController@data');
+    Route::get('/cariKPembangunan', 'KPembangunanController@cari');
+    Route::get('/KPembangunan/form', 'KPembangunanController@form');
+    Route::post('/KPembangunan/tambah', 'KPembangunanController@tambah');
+    Route::get('/KPembangunan/edit/{id}', 'KPembangunanController@edit');
+    Route::post('/KPembangunan/update/{id}', 'KPembangunanController@update');
+    Route::delete('/KPembangunan/hapus/{id}', 'KPembangunanController@hapus');
+    // Rumah
+    Route::get('/dataRumah', 'RumahController@data');
+    Route::get('/cariRumah', 'RumahController@cari');
+    Route::get('/Rumah/form', 'RumahController@form');
+    Route::post('/Rumah/tambah', 'RumahController@tambah');
+    Route::get('/Rumah/edit/{id}', 'RumahController@edit');
+    Route::post('/Rumah/update/{id}', 'RumahController@update');
+    Route::delete('/Rumah/hapus/{id}', 'RumahController@hapus');
+});    
 Auth::routes();

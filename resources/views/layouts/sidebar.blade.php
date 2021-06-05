@@ -9,6 +9,9 @@
 
     @if(\Auth::user()->role == 'kper')
     <li class="menu-sidebar"><a href="{{ url('/verifpesanan') }}"><span class="fa fa-calendar-minus-o"></span>Daftar Pesanan</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/dataSupplier') }}"><span class="fa fa-calendar-minus-o"></span>Data Supplier</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/dataKPembangunan') }}"><span class="fa fa-calendar-minus-o"></span>Data Kepala Pembangunan</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/dataRumah') }}"><span class="fa fa-calendar-minus-o"></span>Data Rumah</span></a></li>
     @elseif(\Auth::user()->role == 'kpem')
     <li class="menu-sidebar"><a href="{{ url('/pesanan') }}"><span class="fa fa-calendar-minus-o"></span>Daftar Pesanan</span></a></li>
     @elseif(\Auth::user()->role == 'supplier')
