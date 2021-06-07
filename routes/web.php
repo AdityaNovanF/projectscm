@@ -10,13 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('guest.index');
-});
-
-Route::get('/landing', function () {
-    return view('guest.index');
-});
+Route::get('/', 'HomeController@landing');
+Route::get('/landing', 'HomeController@landing');
+Route::get('/rumah/detail/{id}', 'HomeController@detailRumah');
 
 Route::get('/keluar', function () {
     \Auth::logout();
@@ -26,7 +22,7 @@ Route::get('/keluar', function () {
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,kper,kpem,supplier']], function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
 
     //Manage data barang
     Route::get('/barang', 'Barang_controller@index');

@@ -28,7 +28,7 @@ class RumahController extends Controller
 
         Session::flash('info', 'Data berhasil ditemukan !!');
 
-        return view('RUmah.data', compact('rumah'));
+        return view('Rumah.data', compact('rumah'));
     }
 
     public function form(){

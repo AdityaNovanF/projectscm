@@ -17,6 +17,8 @@ class CreateRumahTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('tipe');
+            $table->string('gambar');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

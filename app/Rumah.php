@@ -8,5 +8,5 @@ class Rumah extends Model
 {
     protected $table = 'rumah';
     protected $primaryKey = 'id';
-    protected $fillable = ['nama', 'tipe'];
+    protected $fillable = ['nama', 'tipe', 'gambar', 'deskripsi'];
 }

@@ -8,32 +8,19 @@
             <p>Ini merupakan daftar tipe rumah yang dapat anda pilih</p>
         </div>
         <div class="posts">
+        @foreach($rumah as $r)
             <figure class="group">
-                <div><a class="imgover" href="#"><img src="{{asset('guest/images/demo/tipeA.jpg')}}" alt=""></a></div>
+                <div><a class="imgover" href="#"><img src="{{ asset('guest/images/demo') }}/{{ $r->gambar }}" alt=""></a></div>
                 <figcaption>
-                    <h6 class="heading">Praesent auctor justo</h6>
-                    <p>Et pulvinar pellentesque lectus urna luctus lorem a laoreet enim ligula vitae turpis curabitur ullamcorper arcu lobortis tempus ornare arcu elit dapibus ante at.</p>
-                    <footer><a class="btn" href="#">View Details</a></footer>
+                    <h6 class="heading">{{$r->nama}}</h6>
+                    <p>{{$r->deskripsi}}</p>
+                    <footer><a class="btn" href="/rumah/detail/{{$r->id}}">View Details</a></footer>
                 </figcaption>
             </figure>
-
-            <figure class="group">
-                <div><a class="imgover" href="#"><img src="{{asset('guest/images/demo/tipeB.jpeg')}}" alt=""></a></div>
-                <figcaption>
-                    <h6 class="heading">Pharetra libero nisi</h6>
-                    <p>Vel diam maecenas mattis massa nec rutrum mattis leo felis posuere eros eget elementum tortor leo non enim praesent id metus in auctor enim a tortor nunc laoreet.</p>
-                    <footer><a class="btn" href="#">View Details</a></footer>
-                </figcaption>
-            </figure>
-
-            <figure class="group">
-                <div><a class="imgover" href="#"><img src="{{asset('guest/images/demo/tipeC.jpg')}}" alt=""></a></div>
-                <figcaption>
-                    <h6 class="heading">Pharetra libero nisi</h6>
-                    <p>Vel diam maecenas mattis massa nec rutrum mattis leo felis posuere eros eget elementum tortor leo non enim praesent id metus in auctor enim a tortor nunc laoreet.</p>
-                    <footer><a class="btn" href="#">View Details</a></footer>
-                </figcaption>
-            </figure>
+        @endforeach
+        </div>
+        <div class="more">
+            <a class="btn center-block" href="/dataRumah" style="align:center">Tipe Rumah Lainnya</a>
         </div>
         <div class="clear"></div>
     </main>
