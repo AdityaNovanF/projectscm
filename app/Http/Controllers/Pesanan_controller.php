@@ -46,6 +46,7 @@ class Pesanan_controller extends Controller
     {
         $this->validate($request, [
             'barang_id' => 'required',
+            'nama' => 'required|string|max:50',
             'jumlah' => 'required|integer|min:1',
         ]);
 
@@ -56,6 +57,7 @@ class Pesanan_controller extends Controller
         } else {
             Pesanan::insert([
                 'barang_id' => $request->barang_id,
+                'nama' => $request->nama,
                 'jumlah' => $request->jumlah,
                 'total' => ($request->jumlah * $barang->harga),
                 'created_at' => date('Y-m-d H:1:s'),
@@ -106,6 +108,7 @@ class Pesanan_controller extends Controller
     {
         $this->validate($request, [
             'barang_id' => 'required',
+            'nama' => 'required|string|max:50',
             'jumlah' => 'required|integer|min:1',
         ]);
 
@@ -117,6 +120,7 @@ class Pesanan_controller extends Controller
         } else {
             Pesanan::where('id', $id)->update([
                 'barang_id' => $request->barang_id,
+                'nama   ' => $request->nama,
                 'jumlah' => $request->jumlah,
                 'total' => ($request->jumlah * $barang->harga),
                 'updated_at' => date('Y-m-d H:1:s'),

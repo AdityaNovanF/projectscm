@@ -20,7 +20,7 @@ Route::get('/keluar', function () {
     // return redirect('/login');
 });
 
-Route::group(['middleware' => ['auth', 'checkRole:admin,kper,kpem,supplier']], function () {
+Route::group(['middleware' => ['auth', 'checkRole:kper,kpem,supplier']], function () {
 
     // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -51,6 +51,23 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,kper,kpem,supplier']], f
 
     Route::get('/verifpesanan/{id}', 'Verifpesanan_controller@edit');
     Route::put('/verifpesanan/{id}', 'Verifpesanan_controller@update');
+
+    //Manage data Faktur
+    Route::get('/faktur', 'Faktur_controller@index');
+
+    Route::get('/faktur/add', 'Faktur_controller@add');
+    Route::post('/faktur/add', 'Faktur_controller@store');
+
+    Route::get('/faktur/{id}', 'Faktur_controller@edit');
+    Route::put('/faktur/{id}', 'Faktur_controller@update');
+
+    Route::delete('/faktur/{id}', 'Faktur_controller@delete');
+
+    //Konfirmasi Faktur
+    Route::get('/konfirmfaktur', 'Konfirmfaktur_controller@index');
+
+    Route::get('/konfirmfaktur/{id}', 'Konfirmfaktur_controller@edit');
+    Route::put('/konfirmfaktur/{id}', 'Konfirmfaktur_controller@update');
 
     //Manage Events
     Route::resource('/events', 'Eventcontroller');
@@ -93,5 +110,5 @@ Route::group(['middleware' => ['auth', 'checkRole:kper']], function () {
     Route::get('/Rumah/edit/{id}', 'RumahController@edit');
     Route::post('/Rumah/update/{id}', 'RumahController@update');
     Route::delete('/Rumah/hapus/{id}', 'RumahController@hapus');
-});    
+});
 Auth::routes();

@@ -24,24 +24,20 @@
                 </div>
                 @endif
 
-                <form role="form" accept='{{url('pesanan/add')}}' method='post'>
+                <form role="form" accept='{{url('faktur/add')}}' method='post' enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Pesanan</label>
-                            <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama Pesanan">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Pilih Barang Pesanan</label>
-                            <select name="barang_id" class='form-control select2'>
-                                @foreach($barang_id as $ba)
-                                <option value="{{ $ba->id }}">{{$ba->nama}}, stock = {{$ba->stock}}</option>
+                            <label for="exampleInputEmail1">Pilih Pesanan</label>
+                            <select name="pesanan_id" class='form-control select2'>
+                                @foreach($pesanan_id as $pe)
+                                <option value="{{ $pe->id }}">{{$pe->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Jumlah</label>
-                            <input type="number" name='jumlah' class="form-control" id="exampleInputEmail1" placeholder="Jumlah">
+                            <label for="exampleInputEmail1">Faktur</label>
+                            <input type="file" name='gambar' class="form-control" id="exampleInputEmail1" placeholder="Gambar">
                         </div>
 
                         <div class="box-footer">

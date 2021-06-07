@@ -16,9 +16,11 @@ class CreatePesanan extends Migration
         Schema::create('pesanan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('barang_id')->unsigned();
+            $table->string('nama', 50);
             $table->integer('jumlah');
             $table->integer('total');
             $table->enum('status', ['Sudah Terverifikasi', 'Belum Terverifikasi'])->default('Belum Terverifikasi');
+            $table->enum('fakturnya', ['Sudah', 'Belum'])->default('Belum');
             $table->timestamps();
 
             $table->foreign('barang_id')->references('id')->on('barang')->onDelete('restrict');

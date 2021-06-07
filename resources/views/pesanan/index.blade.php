@@ -21,6 +21,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>Nama Pesanan</th>
                                 <th>Barang</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
@@ -37,6 +38,7 @@
                             @foreach($data2 as $e=>$dt)
                             <tr>
                                 <td>{{ $e+1 }}</td>
+                                <td>{{ $dt->nama }}</td>
                                 <td>
                                     {{ $dt->barang_r->nama }} <br>
                                     <img src="{{asset('storage/'.$dt->barang_r->gambar)}}" height="150px">
@@ -52,12 +54,12 @@
                                     @endif
                                 </td>
                                 <td>
+                                    @if(\Auth::user()->role == 'kpem')
                                     <div style="width:80px">
-                                        @if(\Auth::user()->role == 'kpem')
                                         <a href='{{url('pesanan/'.$dt->id)}}' class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
                                         <button href='{{url('pesanan/'.$dt->id)}}' class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
-                                        @endif
                                     </div>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -81,12 +83,12 @@
                                     @endif
                                 </td>
                                 <td>
+                                    @if(\Auth::user()->role == 'kpem')
                                     <div style="width:80px">
-                                        @if(\Auth::user()->role == 'kpem')
                                         <a href='{{url('pesanan/'.$dt->id)}}' class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
                                         <button href='{{url('pesanan/'.$dt->id)}}' class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
-                                        @endif
                                     </div>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

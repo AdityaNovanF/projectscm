@@ -31,6 +31,10 @@
                     <div class="box-body">
                         @if(\Auth::user()->role == 'kpem')
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Pesanan</label>
+                            <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama Pesanan" value='{{$dt->nama}}'>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Pilih Jenis Barang</label>
                             <select name="barang_id" class='form-control select2'>
                                 @foreach($barang_id as $ba)
@@ -43,6 +47,10 @@
                             <input type="number" name='jumlah' class="form-control" id="exampleInputEmail1" placeholder="Jumlah" value='{{$dt->jumlah}}'>
                         </div>
                         @elseif(\Auth::user()->role == 'kper')
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Pesanan</label>
+                            <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama Pesanan" value='{{$dt->nama}}'>
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Gambar</label><br>
                             <img src="{{asset('storage/'.$dt->barang_r->gambar)}}" height="250px">
