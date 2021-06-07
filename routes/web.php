@@ -24,7 +24,7 @@ Route::get('/keluar', function () {
     // return redirect('/login');
 });
 
-Route::group(['middleware' => ['auth', 'checkRole:admin,kper,kpem,supplier']], function () {
+Route::group(['middleware' => ['auth', 'checkRole:kper,kpem,supplier']], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
