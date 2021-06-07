@@ -6,6 +6,8 @@
 
     <li class="menu-sidebar"><a href="{{ url('/home') }}"><span class="fa fa-calendar-minus-o"></span> Beranda Dashboard</span></a></li>
     <li class="menu-sidebar"><a href="{{ url('/barang') }}"><span class="fa fa-calendar-minus-o"></span>Data Barang</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/faktur') }}"><span class="fa fa-calendar-minus-o"></span>Data Faktur</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/konfirmfaktur') }}"><span class="fa fa-calendar-minus-o"></span>Konfirmasi Faktur</span></a></li>
 
     @if(\Auth::user()->role == 'kper')
     <li class="menu-sidebar"><a href="{{ url('/verifpesanan') }}"><span class="fa fa-calendar-minus-o"></span>Daftar Pesanan</span></a></li>
