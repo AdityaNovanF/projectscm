@@ -13,16 +13,16 @@
 Route::get('/', 'HomeController@landing');
 Route::get('/landing', 'HomeController@landing');
 Route::get('/rumah/detail/{id}', 'HomeController@detailRumah');
+Route::get('/info/detail/{id}', 'HomeController@detailInfo');
 
-Route::get('/keluar', function () {
-    \Auth::logout();
-    return view('guest.index');
-    // return redirect('/login');
-});
+Route::post('/kritikSaran/tambah', 'HomeController@tambahKS');
+Route::post('/KPR/form', 'HomeController@tambahKPR');
+
+Route::get('/keluar', 'HomeController@landing');
 
 Route::group(['middleware' => ['auth', 'checkRole:kper,kpem,supplier']], function () {
 
-    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
 
     //Manage data barang
     Route::get('/barang', 'Barang_controller@index');
@@ -110,5 +110,15 @@ Route::group(['middleware' => ['auth', 'checkRole:kper']], function () {
     Route::get('/Rumah/edit/{id}', 'RumahController@edit');
     Route::post('/Rumah/update/{id}', 'RumahController@update');
     Route::delete('/Rumah/hapus/{id}', 'RumahController@hapus');
+    // Informasi
+    Route::get('/dataInformasi', 'InfoController@data');
+    Route::get('/cariInfo', 'InfoController@cari');
+    Route::get('/Info/form', 'InfoController@form');
+    Route::post('/Info/tambah', 'InfoController@tambah');
+    Route::get('/Info/edit/{id}', 'InfoController@edit');
+    Route::post('/Info/update/{id}', 'InfoController@update');
+    Route::delete('/Info/hapus/{id}', 'InfoController@hapus');
+    // Kritik Saran
+    Route::get('/kritikSaran', 'KPerumahanController@kritikSaran');
 });
 Auth::routes();

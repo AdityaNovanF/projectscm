@@ -12,7 +12,7 @@ class RumahController extends Controller
     public function data(){
         $title = 'Data Rumah';
         $rumah = DB::table('rumah')
-        -> select('rumah.id','rumah.nama','rumah.tipe')
+        -> select('rumah.id','rumah.nama','rumah.tipe','rumah.deskripsi')
         -> orderBy('rumah.nama', 'asc')
         -> paginate(5);
         return view('Rumah.data', compact('rumah', 'title'));
@@ -40,11 +40,21 @@ class RumahController extends Controller
         $request->validate([
             'nama'          => 'required|unique:rumah,nama',
             'tipe'          => 'required',
+            'gambar'        => 'required|mimes:jpg,jpeg,png',
+            'deskripsi'     => 'required',
         ]);
 
         $rumah = new Rumah;
-        $rumah->nama           = $request->nama;
-        $rumah->tipe           = $request->tipe;
+        $rumah->nama            = $request->nama;
+        $rumah->tipe            = $request->tipe;
+        $rumah->deskripsi       = $request->deskripsi;
+
+        if ($request->hasfile('gambar')) {
+            $foto         = $request->file('gambar');
+            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('guest/images/demo'), $new_foto);
+            $rumah->gambar = $new_foto;
+        }
 
         $rumah->save();
 
@@ -55,9 +65,9 @@ class RumahController extends Controller
 
     public function edit($id)
     {
-        $title = 'Form Data Rumah';
+        $title = 'Edit Data Rumah';
         $rumah = DB::table('Rumah')
-        -> select('rumah.id','rumah.nama','rumah.tipe')
+        -> select('rumah.id','rumah.nama','rumah.tipe','rumah.deskripsi','rumah.gambar')
         -> where('rumah.id','=',$id)
         -> first();
 
@@ -71,11 +81,21 @@ class RumahController extends Controller
         $request->validate([
             'nama'          => 'required|unique:rumah,nama,'.$rumah->id,
             'tipe'          => 'required',
+            'deskripsi'     => 'required',
+            'gambar'        => 'required|mimes:jpg,jpeg,png',
         ]);
 
         $rumah = Rumah::where('id', $request->id)->first();
-        $rumah->nama         = $request->nama;
-        $rumah->tipe         = $request->tipe;
+        $rumah->nama        = $request->nama;
+        $rumah->tipe        = $request->tipe;
+        $rumah->deskripsi   = $request->deskripsi;
+
+        if ($request->hasfile('gambar')) {
+            $foto         = $request->file('gambar');
+            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('guest/images/demo'), $new_foto);
+            $rumah->gambar = $new_foto;
+        }
 
         $rumah->update();
 

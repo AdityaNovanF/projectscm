@@ -24,25 +24,17 @@
                 </div>
                 @endif
 
-                <form role="form" action="{{ url('/Rumah/tambah') }}" method='post' enctype="multipart/form-data">
+                <form role="form" action="{{ url('/Info/tambah') }}" method='post' enctype="multipart/form-data">
                 @csrf
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama</label>
-                            <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama">
+                            <label for="exampleInputEmail1">Juduk</label>
+                            <input type="text" name='judul' class="form-control" id="exampleInputEmail1" placeholder="Judul">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tipe</label>
-                            <input type="text" name='tipe' class="form-control" id="exampleInputEmail1" placeholder="Tipe">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Deskripsi</label>
-                            <input type="text" name='deskripsi' class="form-control" id="exampleInputEmail1" placeholder="Deskripsi">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Gambar</label>
-                            <input type="file" name='gambar' class="form-control" id="exampleInputEmail1" placeholder="Gambar" value="{{ old('gambar') }}">
+                            <label for="exampleInputEmail1">Konten</label>
+                            <input type="text" name='konten' class="form-control" id="exampleInputEmail1" placeholder="Konten">
                         </div>
 
                         <div class="box-footer">

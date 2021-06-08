@@ -21,7 +21,7 @@
                 <li><a class="drop" href="#">Pages</a>
                     <ul>
                         <li><a href="pages/gallery.html">Gallery</a></li>
-                        <li><a href="pages/full-width.html">Full Width</a></li>
+                        <li><a href="/KPR/form">Ajukan KPR</a></li>
                         <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
                         <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
                         <li><a href="pages/basic-grid.html">Basic Grid</a></li>

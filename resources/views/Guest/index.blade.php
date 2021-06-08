@@ -20,7 +20,7 @@
         @endforeach
         </div>
         <div class="more">
-            <a class="btn center-block" href="/dataRumah" style="align:center">Tipe Rumah Lainnya</a>
+            <button type="button" class="btn btn-info" href="/dataRumah">Tipe Rumah Lainnya</button>
         </div>
         <div class="clear"></div>
     </main>
@@ -66,50 +66,25 @@
             <h6 class="heading font-x3">More Information</h6>
             <p>Lebih mengenal kami tentang informasi lebih lanjut</p>
         </div>
-        <ul class="nospace group latest">
+        <div class="col-lg-4 col-md-6">
+        @foreach($info as $i)
+        <ul class="nospace group latest " >
             <li class="one_third first">
                 <article>
-                    <h6 class="heading"><a href="#">Hendrerit venenatis</a></h6>
-                    <p>Malesuada ut eleifend sed odio class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos himenaeos pellentesque ut est vitae orci ultrices posuere cras ornare arcu vivamus a leo vestibulum venenatis erat non arcu proin risus tellus bibendum.</p>
+                    <h6 class="heading"><a href="#">{{$i->judul}}</a></h6>
+                    <p>{{ substr($i->konten, 0, 120) }}</p>
                     <ul class="nospace meta">
-                        <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                        <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Category Tag</a></li>
+                        <!-- <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li> -->
+                        <!-- <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Category Tag</a></li> -->
                         <li>
-                            <time datetime="2045-04-05T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i> 05 April 2045</time>
+                            <time datetime="2045-04-05T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i> {{$i->tanggal}}</time>
                         </li>
                     </ul>
-                    <footer><a class="btn" href="#">View Details</a></footer>
-                </article>
-            </li>
-            <li class="one_third">
-                <article>
-                    <h6 class="heading"><a href="#">Sed volutpat sit amet</a></h6>
-                    <p>Ultrices vitae ante fusce tellus quam placerat id bibendum eget pharetra at velit maecenas ut eros vel tortor viverra auctor phasellus ligula mauris erat suspendisse vitae sapien eu mi placerat tincidunt proin semper lorem in urna vivamus suscipit est vitae nisi.</p>
-                    <ul class="nospace meta">
-                        <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                        <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Category Tag</a></li>
-                        <li>
-                            <time datetime="2045-04-04T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i> 04 April 2045</time>
-                        </li>
-                    </ul>
-                    <footer><a class="btn" href="#">View Details</a></footer>
-                </article>
-            </li>
-            <li class="one_third">
-                <article>
-                    <h6 class="heading"><a href="#">Suspendisse suscipit</a></h6>
-                    <p>Nibh et interdum varius orci lacus pretium pede non malesuada ligula nibh ut tortor aenean tincidunt turpis vel ante donec tortor neque placerat eget aliquam id imperdiet nec odio ut ligula suspendisse praesent aliquet facilisis tortor donec posuere accumsan pede.</p>
-                    <ul class="nospace meta">
-                        <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                        <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Category Tag</a></li>
-                        <li>
-                            <time datetime="2045-04-03T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i> 03 April 2045</time>
-                        </li>
-                    </ul>
-                    <footer><a class="btn" href="#">View Details</a></footer>
+                    <footer><a class="btn" href="/info/detail/{{$i->id}}">View Details</a></footer>
                 </article>
             </li>
         </ul>
+        @endforeach</div>
     </section>
 </div>
 
@@ -118,10 +93,11 @@
         <div>
             <h6 class="heading">Kritik dan Saran</h6>
             <p class="btmspace-30">Kirimkan kritik dan saran anda kepada kami</p>
-            <form method="post" action="#">
+            <form role="form" action="{{ url('/kritikSaran/tambah') }}" method='post' enctype="multipart/form-data">
+            @csrf
                 <fieldset>
-                    <input type="text" value="" placeholder="Nama">
-                    <input type="text" value="" placeholder="Kritik dan Saran">
+                    <input type="text" name="nama" value="" placeholder="Nama">
+                    <input type="text" name="isi" value="" placeholder="Kritik dan Saran">
                     <button type="submit" value="submit">Submit</button>
                 </fieldset>
             </form>

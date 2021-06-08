@@ -24,17 +24,14 @@
             <h1 id="logo"><a href="{{url('landing')}}"><img src="{{asset('images/logo2.png')}}" style="width: 17%; margin-top: -4%; margin-bottom: -4%;" alt=""></a></h1>
         </header>
     </div>
-    @foreach($rumah as $r)
+    @foreach($info as $i)
     <div class="title">
-      {{$r->nama}}
-    </div>
-    <div>
-        <img src="{{ asset('guest/images/demo') }}/{{ $r->gambar }}" height="300px" width="400px" alt="" srcset="">
+      {{$i->judul}}
     </div>
     <div class="col-lg-6 pt-4 pt-lg-0 content">
-        <h4>Tipe:{{$r->tipe}}</h4>
+        <h5>Tanggal Dibuat:{{$i->tanggal}}</h5>
         <p>
-            {{$r->deskripsi}}
+            {{$i->konten}}
         </p>
     </div>
     @endforeach

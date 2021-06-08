@@ -24,24 +24,16 @@
                 </div>
                 @endif
 
-                <form role="form" action="{{ url('/Rumah/update') }}/{{ $rumah->id }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('/Info/update') }}/{{ $info->id }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama</label>
-                            <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama" value="{{$rumah->nama}}">
+                            <label for="exampleInputEmail1">Judul</label>
+                            <input type="text" name='judul' class="form-control" id="exampleInputEmail1" placeholder="Judul" value="{{$info->judul}}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tipe</label>
-                            <input type="text" name='tipe' class="form-control" id="exampleInputEmail1" placeholder="Tipe" value="{{$rumah->tipe}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Deskripsi</label>
-                            <input type="text" name='deskripsi' class="form-control" id="exampleInputEmail1" placeholder="Deskripsi" value="{{$rumah->deskripsi}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Gambar</label>
-                            <input type="file" name='gambar' class="form-control" id="exampleInputEmail1" placeholder="Gambar" value="{{$rumah->gambar}}">
+                            <label for="exampleInputEmail1">Konten</label>
+                            <input type="text" name='konten' class="form-control" id="exampleInputEmail1" placeholder="KOnten" value="{{$info->konten}}">
                         </div>
                     </div>
 
