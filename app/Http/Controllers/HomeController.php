@@ -7,7 +7,9 @@ use DB;
 use App\Rumah;
 use App\Info;
 use App\KritikSaran;
+use App\KPR;
 use Session;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -76,28 +78,57 @@ class HomeController extends Controller
     }
 
     public function logout(){
+        Auth::logout();
         return redirect('/landing');
+    }
+
+    public function formKPR(){
+        $title = 'Form Data KPR';
+        $rumah =  DB::table('rumah')
+        -> select('rumah.id','rumah.nama')
+        -> get();
+        return view('KPR.form', compact('title', 'rumah'));
     }
 
     public function tambahKPR(Request $request){
         $request->validate([
             'nama'          => 'required',
-            'isi'           => 'required',
+            'alamat'        => 'required',
+            // 'id_rumah'      => 'required',
+            'gaji'          => 'required|mimes:jpg,jpeg,png',
+            'fotoKK'        => 'required|mimes:jpg,jpeg,png',
+            'fotoKTP'       => 'required|mimes:jpg,jpeg,png',
         ]);
 
-        $ks = new KritikSaran;
-        $ks->nama      = $request->nama;
-        $ks->isi       = $request->isi;
-
-        $ks->save();
+        $kpr = new KPR;
+        $kpr->name      = $request->nama;
+        $kpr->alamat    = $request->alamat;
+        $kpr->id_rumah  = $request->id_rumah;
+        // $kpr->gaji      = $request->gaji;
+        // $kpr->fotoKK    = $request->fotoKK;
+        // $kpr->fotoKTP   = $request->fotoKTP;
+        if ($request->hasfile('gaji')) {
+            $foto         = $request->file('gaji');
+            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('guest/images/demo'), $new_foto);
+            $kpr->gaji = $new_foto;
+        }
+        if ($request->hasfile('fotoKK')) {
+            $foto         = $request->file('fotoKK');
+            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('guest/images/demo'), $new_foto);
+            $kpr->fotoKK = $new_foto;
+        }
+        if ($request->hasfile('fotoKTP')) {
+            $foto         = $request->file('fotoKTP');
+            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $foto->move(public_path('guest/images/demo'), $new_foto);
+            $kpr->fotoKTP = $new_foto;
+        }
+        $kpr->save();
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
         return redirect('/landing');
-    }
-
-    public function logout(){
-        return redirect('/landing');
-    }
     }
 }

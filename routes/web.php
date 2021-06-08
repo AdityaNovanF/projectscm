@@ -16,9 +16,10 @@ Route::get('/rumah/detail/{id}', 'HomeController@detailRumah');
 Route::get('/info/detail/{id}', 'HomeController@detailInfo');
 
 Route::post('/kritikSaran/tambah', 'HomeController@tambahKS');
-Route::post('/KPR/form', 'HomeController@tambahKPR');
+Route::get('/KPR/form', 'HomeController@formKPR');
+Route::post('/KPR/tambah', 'HomeController@tambahKPR');
 
-Route::get('/keluar', 'HomeController@landing');
+Route::get('/keluar', 'HomeController@logout');
 
 Route::group(['middleware' => ['auth', 'checkRole:kper,kpem,supplier']], function () {
 
@@ -110,6 +111,9 @@ Route::group(['middleware' => ['auth', 'checkRole:kper']], function () {
     Route::get('/Rumah/edit/{id}', 'RumahController@edit');
     Route::post('/Rumah/update/{id}', 'RumahController@update');
     Route::delete('/Rumah/hapus/{id}', 'RumahController@hapus');
+    // Pengajuan KPR
+    Route::get('/pengajuanKPR', 'KPerumahanController@dataKPR');
+    Route::get('kpr/detail/{id}', 'KPerumahanController@detail');
     // Informasi
     Route::get('/dataInformasi', 'InfoController@data');
     Route::get('/cariInfo', 'InfoController@cari');

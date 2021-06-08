@@ -24,4 +24,24 @@ class KPerumahanController extends Controller
 
         return view('Guest.kritikSaran', compact('ks', 'title'));
     }
+
+    public function dataKPR(){
+        $title = 'Data Pengajuan KPR';
+        $kpr = DB::table('kpr')
+        -> join('rumah','rumah.id', '=', 'kpr.id_rumah')
+        -> select('kpr.id', 'kpr.name', 'kpr.alamat', 'kpr.gaji', 'rumah.nama', 'rumah.tipe')
+        -> paginate(5);
+
+        return view('KPR.data', compact('title', 'kpr'));
+    }
+
+    public function detail($id){
+        $title = 'Detail Data Pengajuan KPR';
+        $kpr = DB::table('kpr')
+        -> join('rumah','rumah.id', '=', 'kpr.id_rumah')
+        -> select('kpr.id', 'kpr.name', 'kpr.alamat', 'kpr.gaji', 'kpr.gaji', 'kpr.fotoKK', 'kpr.fotoKTP', 'rumah.nama', 'rumah.tipe')
+        -> first();
+
+        return view('KPR.detail', compact('title', 'kpr'));
+    }
 }

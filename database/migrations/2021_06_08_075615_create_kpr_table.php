@@ -15,8 +15,14 @@ class CreateKprTable extends Migration
     {
         Schema::create('kpr', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+            $table->string('name');
+            $table->string('alamat');
+            $table->string('fotoKK');
+            $table->string('fotoKTP');
+            $table->string('gaji');
+            $table->integer('id_rumah')->unsigned();
             $table->timestamps();
+            $table->foreign('id_rumah')->references('id')->on('rumah')->onDelete('restrict');
         });
     }
 

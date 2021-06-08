@@ -13,6 +13,7 @@
     <li class="menu-sidebar"><a href="{{ url('/barang') }}"><span class="fa fa-calendar-minus-o"></span>Data Barang</span></a></li>
     <li class="menu-sidebar"><a href="{{ url('/dataInformasi') }}"><span class="fa fa-calendar-minus-o"></span>Data Informasi</span></a></li>
     <li class="menu-sidebar"><a href="{{ url('/verifpesanan') }}"><span class="fa fa-calendar-minus-o"></span>Data Pemesanan Barang</span></a></li>
+    <li class="menu-sidebar"><a href="{{ url('/pengajuanKPR') }}"><span class="fa fa-calendar-minus-o"></span>Pengajuan KPR</span></a></li>
     <li class="menu-sidebar"><a href="{{ url('/konfirmfaktur') }}"><span class="fa fa-calendar-minus-o"></span>Konfirmasi Faktur</span></a></li>
     <li class="menu-sidebar"><a href="{{ url('/kritikSaran') }}"><span class="fa fa-calendar-minus-o"></span>Data Kritik Saran</span></a></li>
     @elseif(\Auth::user()->role == 'kpem')
