@@ -14,12 +14,14 @@ class CreateRumahTable extends Migration
     public function up()
     {
         Schema::create('rumah', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('nama');
             $table->string('tipe');
             $table->string('gambar');
             $table->text('deskripsi');
             $table->timestamps();
+
+            $table->engine = 'InnoDB';
         });
     }
 

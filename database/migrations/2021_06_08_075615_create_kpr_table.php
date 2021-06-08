@@ -14,7 +14,7 @@ class CreateKprTable extends Migration
     public function up()
     {
         Schema::create('kpr', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
             $table->string('alamat');
             $table->string('fotoKK');
@@ -22,7 +22,9 @@ class CreateKprTable extends Migration
             $table->string('gaji');
             $table->integer('id_rumah')->unsigned();
             $table->timestamps();
+
             $table->foreign('id_rumah')->references('id')->on('rumah')->onDelete('restrict');
+            $table->engine = 'InnoDB';
         });
     }
 
