@@ -29,7 +29,7 @@
       {{$i->judul}}
     </div>
     <div class="col-lg-6 pt-4 pt-lg-0 content">
-        <h5>Tanggal Dibuat:{{$i->tanggal}}</h5>
+        <h5>Tanggal Dibuat:{{$i->created_at}}</h5>
         <p>
             {{$i->konten}}
         </p>

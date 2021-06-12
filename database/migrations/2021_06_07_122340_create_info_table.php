@@ -17,7 +17,6 @@ class CreateInfoTable extends Migration
             $table->bigIncrements('id');
             // $table->bigInteger('id_kper')->unsigned()->index();
             $table->string('judul');
-            $table->date('tanggal');
             $table->text('konten');
             // $table->foreign('id_kper')->references('id')->on('users');
             $table->timestamps();

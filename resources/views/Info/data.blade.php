@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{$e+1}}</td>
                                 <td>{{$i->judul}}</td>
-                                <td>{{$i->tanggal}}</td>
+                                <td>{{$i->created_at}}</td>
                                 <td>{{substr($i->konten,0,50)}}...</td>
                                 @if(\Auth::user()->role == 'kper')
                                 <td>

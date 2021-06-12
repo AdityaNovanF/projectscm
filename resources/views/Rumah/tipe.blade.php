@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Detail Rumah</title>
+  <title>Pilihan Tipe Rumah</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -21,11 +21,6 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('type/css/style.css')}}" rel="stylesheet">
-    <style>
-        h1{
-            color:white;
-        }
-    </style>
 
   <!-- =======================================================
   * Template Name: Shuffle - v2.2.0
@@ -41,10 +36,9 @@
       <div class="container">
 
         <div class="text-center">
-          <h4>Sistem Rumah Terpadu</h4>
-          @foreach($rumah as $r)
-          <h1>{{$r->nama}}</h1>
-          <!-- <a class="cta-btn" href="/KPR/form">Ajukan KPR</a> -->
+          <h3>Sistem Rumah Terpadu</h3>
+          <p>Choose Your Own Dream House</p>
+          <a class="cta-btn" href="/KPR/form">Ajukan KPR</a>
         </div>
 
       </div>
@@ -54,14 +48,14 @@
     <section class="more-services section-bg">
       <div class="container">
         <div class="row">
-          
-          <div class="d-flex align-items-stretch mb-5 mb-lg-0">
+          @foreach($rumah as $r)
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="card">
               <img src="{{ asset('guest/images/demo') }}/{{ $r->gambar }}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title"><a href="">{{$r->tipe}}</a></h5>
+                <h5 class="card-title"><a href="">{{$r->nama}}</a></h5>
                 <p class="card-text">{{$r->deskripsi}}</p>
-                <!-- <a href="/rumah/detail/{{$r->id}}" class="btn">View Detail</a> -->
+                <a href="/rumah/detail/{{$r->id}}" class="btn">View Detail</a>
               </div>
             </div>
           </div>

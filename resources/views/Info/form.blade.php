@@ -29,7 +29,7 @@
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Juduk</label>
+                            <label for="exampleInputEmail1">Judul</label>
                             <input type="text" name='judul' class="form-control" id="exampleInputEmail1" placeholder="Judul">
                         </div>
                         <div class="form-group">

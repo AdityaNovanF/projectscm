@@ -12,7 +12,7 @@ class InfoController extends Controller
     public function data(){
         $title = 'Data Informasi';
         $info = DB::table('info')
-        -> select('info.id','info.judul','info.tanggal','info.konten')
+        -> select('info.id','info.judul','info.konten','info.created_at')
         -> orderBy('info.judul', 'asc')
         -> get();
         // -> paginate(5);
@@ -23,7 +23,7 @@ class InfoController extends Controller
         $cari = $request->cari;
 
         $info = DB::table('info')
-        -> select('info.id','info.judul','info.tanggal','info.konten')
+        -> select('info.id','info.judul','info.konten','info.created_at')
         -> where('judul','like',"%".$cari."%")
         -> get();
         // -> paginate(5);
@@ -46,7 +46,6 @@ class InfoController extends Controller
 
         $info = new Info;
         $info->judul        = $request->judul;
-        $info->tanggal      = Date('y-m-d');
         $info->konten       = $request->konten;
 
         $info->save();
@@ -60,7 +59,7 @@ class InfoController extends Controller
     {
         $title = 'Edit Data Informasi';
         $info = DB::table('Info')
-        -> select('info.id','info.judul','info.tanggal','info.konten')
+        -> select('info.id','info.judul','info.konten')
         -> where('info.id','=',$id)
         -> first();
 
@@ -78,7 +77,6 @@ class InfoController extends Controller
 
         $info = Info::where('id', $request->id)->first();
         $info->judul         = $request->judul;
-        $info->tanggal       = Date('y-m-d');
         $info->konten        = $request->konten;
 
         $info->update();

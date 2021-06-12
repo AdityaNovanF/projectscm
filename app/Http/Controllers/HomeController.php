@@ -37,7 +37,7 @@ class HomeController extends Controller
         -> paginate(2);
 
         $info = DB::table('info')
-        -> select('info.id','info.judul','info.tanggal', 'info.konten')
+        -> select('info.id','info.judul','info.konten','info.created_at')
         -> paginate(3);
         return view('Guest.index', compact('rumah', 'info'));
     }
@@ -53,7 +53,7 @@ class HomeController extends Controller
 
     public function detailInfo($id){
         $info = DB::table('info')
-        -> select('info.id','info.judul','info.tanggal', 'info.konten')
+        -> select('info.id','info.judul','info.konten','info.created_at')
         -> where('info.id', '=', $id)
         -> get();
 
@@ -94,7 +94,6 @@ class HomeController extends Controller
         $request->validate([
             'nama'          => 'required',
             'alamat'        => 'required',
-            // 'id_rumah'      => 'required',
             'gaji'          => 'required|mimes:jpg,jpeg,png',
             'fotoKK'        => 'required|mimes:jpg,jpeg,png',
             'fotoKTP'       => 'required|mimes:jpg,jpeg,png',
@@ -104,6 +103,7 @@ class HomeController extends Controller
         $kpr->name      = $request->nama;
         $kpr->alamat    = $request->alamat;
         $kpr->id_rumah  = $request->id_rumah;
+        $kpr->status    = 'Pengajuan';
         // $kpr->gaji      = $request->gaji;
         // $kpr->fotoKK    = $request->fotoKK;
         // $kpr->fotoKTP   = $request->fotoKTP;
@@ -130,5 +130,13 @@ class HomeController extends Controller
         Session::flash('success', 'Data berhasil disimpan !!');
 
         return redirect('/landing');
+    }
+
+    public function tipe(){
+        $rumah = DB::table('rumah')
+        -> select('rumah.id','rumah.nama','rumah.tipe', 'rumah.gambar', 'rumah.deskripsi')
+        -> get();
+
+        return view('Rumah.tipe', compact('rumah'));
     }
 }

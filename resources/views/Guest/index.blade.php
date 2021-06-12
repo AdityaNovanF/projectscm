@@ -18,10 +18,12 @@
                 </figcaption>
             </figure>
         @endforeach
-        </div>
+        </div><br><br>
+        @if(count($rumah) >= 2)
         <div class="more">
-            <button type="button" class="btn btn-info" href="/dataRumah">Tipe Rumah Lainnya</button>
+            <center><a href="/tipeRumah"><button type="button" class="btn btn-primary">Tipe Rumah Lainnya</button></a></center>
         </div>
+        @endif
         <div class="clear"></div>
     </main>
 </div>
@@ -66,25 +68,22 @@
             <h6 class="heading font-x3">More Information</h6>
             <p>Lebih mengenal kami tentang informasi lebih lanjut</p>
         </div>
-        <div class="col-lg-4 col-md-6">
         @foreach($info as $i)
-        <ul class="nospace group latest " >
+        <ul class="nospace group latest">
             <li class="one_third first">
                 <article>
                     <h6 class="heading"><a href="#">{{$i->judul}}</a></h6>
-                    <p>{{ substr($i->konten, 0, 120) }}</p>
+                    <p>{{$i->konten}}</p>
                     <ul class="nospace meta">
-                        <!-- <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li> -->
-                        <!-- <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Category Tag</a></li> -->
                         <li>
-                            <time datetime="2045-04-05T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i> {{$i->tanggal}}</time>
+                            <time datetime="2045-04-05T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>{{$i->created_at}}</time>
                         </li>
                     </ul>
-                    <footer><a class="btn" href="/info/detail/{{$i->id}}">View Details</a></footer>
+                    <footer><a class="btn" href="#">View Details</a></footer>
                 </article>
             </li>
         </ul>
-        @endforeach</div>
+        @endforeach
     </section>
 </div>
 

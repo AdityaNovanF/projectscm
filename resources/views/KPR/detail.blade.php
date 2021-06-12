@@ -24,7 +24,7 @@
                 </div>
                 @endif
 
-                <form role="form" action="{{ url('/kpr/update') }}/{{ $kpr->id }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('/kpr/konfirm') }}/{{ $kpr->id }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
@@ -41,7 +41,11 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tipe Rumah</label>
-                            <input type="file" name='gambar' class="form-control" id="exampleInputEmail1" placeholder="Gambar" value="{{$kpr->tipe}}" readonly>
+                            <input type="text" name='deskripsi' class="form-control" id="exampleInputEmail1" placeholder="Tipe Rumah" value="{{$kpr->tipe}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Status</label>
+                            <input type="text" name='status' class="form-control" id="exampleInputEmail1" placeholder="Status" value="{{$kpr->status}}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Slip Gaji</label>

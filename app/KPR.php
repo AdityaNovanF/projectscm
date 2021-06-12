@@ -8,7 +8,7 @@ class KPR extends Model
 {
     protected $table = "kpr";
 	protected $primaryKey = "id";
-    protected $fillable = ['name','alamat','fotoKK','fotoKTP','gaji','id_rumah'];
+    protected $fillable = ['name','alamat','fotoKK','fotoKTP','gaji','status','id_rumah'];
 
     public function rumah(){
         return $this->belongsTo('App/Rumah');

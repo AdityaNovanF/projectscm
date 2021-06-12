@@ -22,6 +22,7 @@
                                 <th>Alamat</th>
                                 <th>Nama Rumah</th>
                                 <th>Tipe Rumah</th>
+                                <th>Status</th>
                                 @if(\Auth::user()->role == 'kper')
                                 <th>Action</th>
                                 @endif
@@ -34,7 +35,8 @@
                                 <td>{{$r->name}}</td>
                                 <td>{{$r->alamat}}</td>
                                 <td>{{$r->nama}}</td>
-                                <td>{{$r->tipe}}<td>
+                                <td>{{$r->tipe}}</td>
+                                <td>{{$r->status}}
                                 @if(\Auth::user()->role == 'kper')
                                 <td>
                                     <div style="width:100px">

@@ -20,6 +20,7 @@ class CreateKprTable extends Migration
             $table->string('fotoKK');
             $table->string('fotoKTP');
             $table->string('gaji');
+            $table->enum('status',['Pengajuan, Diterima'])
             $table->integer('id_rumah')->unsigned();
             $table->timestamps();
 
