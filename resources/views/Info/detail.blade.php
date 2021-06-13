@@ -1,38 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Detail Tipe Rumah</title>
-    <link rel="shortcut icon" href="{{asset('images/logoscm.png')}}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="{{asset('guest/layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Detail Info</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="{{asset('home/img/favicon.png')}}" rel="icon"> -->
+  <!-- <link href="{{asset('home/img/apple-touch-icon.png')}}" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{asset('type/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('type/css/style.css')}}" rel="stylesheet">
     <style>
-        .content{
-            background-color:white;
-            text-align:center;
+        h1{
+            color:white;
         }
-        .title{
-            margin-top: 50px;
-            margin-bottom: 30px;
-            font-size: 40px !important;
-            font-weight:bold;
-        }    
     </style>
+
+  <!-- =======================================================
+  * Template Name: Shuffle - v2.2.0
+  * Template URL: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
-<div class="content">
-    <div class="wrapper row0">
-        <header id="header" class="hoc clear center">
-            <h1 id="logo"><a href="{{url('landing')}}"><img src="{{asset('images/logo2.png')}}" style="width: 17%; margin-top: -4%; margin-bottom: -4%;" alt=""></a></h1>
-        </header>
-    </div>
-    @foreach($info as $i)
-    <div class="title">
-      {{$i->judul}}
-    </div>
-    <div class="col-lg-6 pt-4 pt-lg-0 content">
-        <h5>Tanggal Dibuat:{{$i->created_at}}</h5>
-        <p>
-            {{$i->konten}}
-        </p>
-    </div>
-    @endforeach
-</div>
+
+<body>
+    <!-- ======= Cta Section ======= -->
+    <section class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h4>Sistem Rumah Terpadu</h4>
+          @foreach($info as $i)
+          <h1>{{$i->judul}}</h1>
+          <!-- <a class="cta-btn" href="/KPR/form">Ajukan KPR</a> -->
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= More Services Section ======= -->
+    <section class="more-services section-bg">
+      <div class="container">
+        <div class="row">
+          
+          <div class="d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Diunggah pada : {{$i->created_at}}</a></h5>
+                <p class="card-text">{{$i->konten}}</p>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+
+      </div>
+    </section><!-- End More Services Section -->
+  <!-- Vendor JS Files -->
+  <!-- <script src="{{asset('home/assets/vendor/jquery/jquery.min.js')}}"></script> -->
+  <script src="{{asset('type/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  
+</body>
+</html>

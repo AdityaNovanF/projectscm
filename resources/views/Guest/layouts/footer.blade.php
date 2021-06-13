@@ -1,4 +1,4 @@
-@yield('detail')
+
 <div class="wrapper row4">
     <footer id="footer" class="hoc clear">
         <div class="center btmspace-50">

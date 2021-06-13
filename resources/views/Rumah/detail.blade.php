@@ -1,4 +1,4 @@
-@section('detail')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,13 +71,9 @@
 
       </div>
     </section><!-- End More Services Section -->
-
   <!-- Vendor JS Files -->
   <!-- <script src="{{asset('home/assets/vendor/jquery/jquery.min.js')}}"></script> -->
   <script src="{{asset('type/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+  
 </body>
-
 </html>
-@endsection('detail')
-@extend('footer')

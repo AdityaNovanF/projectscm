@@ -47,6 +47,7 @@ class InfoController extends Controller
         $info = new Info;
         $info->judul        = $request->judul;
         $info->konten       = $request->konten;
+        $info->id_kper      = '1';
 
         $info->save();
 
@@ -78,6 +79,7 @@ class InfoController extends Controller
         $info = Info::where('id', $request->id)->first();
         $info->judul         = $request->judul;
         $info->konten        = $request->konten;
+        $info->id_kper      = '1';
 
         $info->update();
 

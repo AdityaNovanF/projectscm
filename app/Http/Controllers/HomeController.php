@@ -70,6 +70,7 @@ class HomeController extends Controller
         $ks = new KritikSaran;
         $ks->nama      = $request->nama;
         $ks->isi       = $request->isi;
+        $ks->id_user   = '1';
 
         $ks->save();
 

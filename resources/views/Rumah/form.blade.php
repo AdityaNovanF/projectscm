@@ -35,12 +35,10 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tipe</label>
                             <select class="form-control @error('tipe') is-invalid @enderror" name="tipe" id="tipe" value="{{old('tipe')}}">
-                                <option value="{{old('id_kecamatan')}}">-- Pilih Tipe Rumah --</option>
-                                @foreach ($tipe as $k)
-                                    <option 
-                                        value="{{ $k->id }}">{{ $k->nama_kecamatan}}
-                                    </option>
-                                @endforeach
+                                <option value="">-- Pilih Tipe Rumah --</option>
+                                <option value="Tipe A">Tipe A</option>
+                                <option value="Tipe B">Tipe B</option>
+                                <option value="Tipe C">Tipe C</option>
                             </select>
                         </div>
                         <div class="form-group">

@@ -15,8 +15,10 @@ class CreateKritikSaranTable extends Migration
     {
         Schema::create('kritikSaran', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('id_user')->unsigned()->index();
             $table->string('nama');
             $table->text('isi');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }

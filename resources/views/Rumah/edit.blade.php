@@ -33,7 +33,12 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tipe</label>
-                            <input type="text" name='tipe' class="form-control" id="exampleInputEmail1" placeholder="Tipe" value="{{$rumah->tipe}}">
+                            <select class="form-control @error('tipe') is-invalid @enderror" name="tipe" id="tipe" value="{{$rumah->tipe}}">
+                                <option value="">-- Pilih Tipe Rumah --</option>
+                                <option value="Tipe A">Tipe A</option>
+                                <option value="Tipe B">Tipe B</option>
+                                <option value="Tipe C">Tipe C</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Deskripsi</label>

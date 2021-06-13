@@ -17,8 +17,9 @@
                 <li><a href="#informasi">Informasi</a></li>
                 <li><a href="#kritik">Kritik dan Saran</a></li>
                 <li><a href="{{url('/home')}}">Login</a></li>
+                <li><a href="{{url('/KPR/form')}}">Ajukan KPR</a></li>
 
-                <li><a class="drop" href="#">Pages</a>
+                <!-- <li><a class="drop" href="#">Pages</a>
                     <ul>
                         <li><a href="pages/gallery.html">Gallery</a></li>
                         <li><a href="/KPR/form">Ajukan KPR</a></li>
@@ -27,7 +28,7 @@
                         <li><a href="pages/basic-grid.html">Basic Grid</a></li>
                         <li><a href="pages/font-icons.html">Font Icons</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
 
         </nav>
