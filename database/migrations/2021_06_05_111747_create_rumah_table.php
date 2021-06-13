@@ -15,10 +15,12 @@ class CreateRumahTable extends Migration
     {
         Schema::create('rumah', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_kper')->unsigned()->index();
             $table->string('nama');
-            $table->string('tipe');
+            $table->enum('tipe',['Tipe A', 'Tipe B', 'Tipe C']);
             $table->string('gambar');
             $table->text('deskripsi');
+            $table->foreign('id_kper')->references('id')->on('users');
             $table->timestamps();
 
             $table->engine = 'InnoDB';

@@ -65,7 +65,7 @@ $dt = \App\User::where('id', \Auth::user()->id)->first();
           <!-- Menu Footer-->
           <li class="user-footer">
             <!-- <div class="pull-left">
-              <a href="{{ url('admin/profile') }}" class="btn btn-default btn-flat menu-sidebar">Profile</a>
+              <a href="{{ url('/profile') }}" class="btn btn-default btn-flat menu-sidebar">Profile</a>
             </div> -->
             <div class="pull-right">
               <a href="{{ url('keluar') }}" class="btn btn-default btn-flat menu-sidebar">Sign out</a>

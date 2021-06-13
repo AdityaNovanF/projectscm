@@ -48,7 +48,7 @@ class KPembangunanController extends Controller
 
         $users->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('dataKPembangunan');
     }
@@ -79,7 +79,7 @@ class KPembangunanController extends Controller
 
         $users->update();
 
-        Session::flash('success', 'Data berhasil diupdate !!');
+        Session::flash('sukses', 'Data berhasil diupdate !!');
 
         return redirect('/dataKPembangunan');
     }

@@ -93,7 +93,7 @@ class EventController extends Controller
 
             $events->save();
 
-            return redirect('events')->with('success', 'Data Berhasil ditambahkan');
+            return redirect('events')->with('sukses', 'Data Berhasil ditambahkan');
         }
     }
 
@@ -155,7 +155,7 @@ class EventController extends Controller
 
         $events->save();
 
-        return redirect('events')->with('success', 'Jadwal Pembuatan Kue diupdate');
+        return redirect('events')->with('sukses', 'Jadwal Pembuatan Kue diupdate');
     }
 
     /**
@@ -169,6 +169,6 @@ class EventController extends Controller
         $events = Event::find($id);
         $events->delete();
 
-        return redirect('events')->with('success', 'Data dihapus');
+        return redirect('events')->with('sukses', 'Data dihapus');
     }
 }

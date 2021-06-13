@@ -1,3 +1,4 @@
+@section('detail')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,3 +79,5 @@
 </body>
 
 </html>
+@endsection('detail')
+@extend('footer')

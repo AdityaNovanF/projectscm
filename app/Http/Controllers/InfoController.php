@@ -50,7 +50,7 @@ class InfoController extends Controller
 
         $info->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/dataInformasi');
     }
@@ -81,7 +81,7 @@ class InfoController extends Controller
 
         $info->update();
 
-        Session::flash('success', 'Data berhasil diupdate !!');
+        Session::flash('sukses', 'Data berhasil diupdate !!');
 
         return redirect('/dataInformasi');
     }

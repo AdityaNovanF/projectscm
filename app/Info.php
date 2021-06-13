@@ -9,4 +9,8 @@ class Info extends Model
     protected $table = "info";
 	protected $primaryKey = "id";
     protected $fillable = ['id_kper','judul','konten'];
+    
+    public function users(){
+        return $this->belongsTo('App/User');
+    }
 }

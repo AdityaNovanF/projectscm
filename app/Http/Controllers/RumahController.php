@@ -58,7 +58,7 @@ class RumahController extends Controller
 
         $rumah->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/dataRumah');
     }
@@ -99,7 +99,7 @@ class RumahController extends Controller
 
         $rumah->update();
 
-        Session::flash('success', 'Data berhasil diupdate !!');
+        Session::flash('sukses', 'Data berhasil diupdate !!');
 
         return redirect('/dataRumah');
     }

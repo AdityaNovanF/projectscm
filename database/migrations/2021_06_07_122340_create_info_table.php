@@ -15,10 +15,10 @@ class CreateInfoTable extends Migration
     {
         Schema::create('info', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->bigInteger('id_kper')->unsigned()->index();
+            $table->integer('id_kper')->unsigned()->index();
             $table->string('judul');
             $table->text('konten');
-            // $table->foreign('id_kper')->references('id')->on('users');
+            $table->foreign('id_kper')->references('id')->on('users');
             $table->timestamps();
         });
     }

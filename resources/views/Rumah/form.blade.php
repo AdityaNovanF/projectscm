@@ -34,7 +34,14 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tipe</label>
-                            <input type="text" name='tipe' class="form-control" id="exampleInputEmail1" placeholder="Tipe">
+                            <select class="form-control @error('tipe') is-invalid @enderror" name="tipe" id="tipe" value="{{old('tipe')}}">
+                                <option value="{{old('id_kecamatan')}}">-- Pilih Tipe Rumah --</option>
+                                @foreach ($tipe as $k)
+                                    <option 
+                                        value="{{ $k->id }}">{{ $k->nama_kecamatan}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Deskripsi</label>

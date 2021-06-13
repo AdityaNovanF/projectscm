@@ -44,7 +44,7 @@ class SupplierController extends Controller
 
         $users->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/dataSupplier');
     }
@@ -75,7 +75,7 @@ class SupplierController extends Controller
 
         $supplier->update();
 
-        Session::flash('success', 'Data berhasil diupdate !!');
+        Session::flash('sukses', 'Data berhasil diupdate !!');
 
         return redirect('/dataSupplier');
     }

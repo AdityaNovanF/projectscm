@@ -10,6 +10,7 @@ use App\KritikSaran;
 use App\KPR;
 use Session;
 use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -72,7 +73,7 @@ class HomeController extends Controller
 
         $ks->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/landing');
     }
@@ -127,7 +128,7 @@ class HomeController extends Controller
         }
         $kpr->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
+        \Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/landing');
     }
