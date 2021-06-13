@@ -9,34 +9,38 @@ use Session;
 
 class RumahController extends Controller
 {
-    public function data(){
+    public function data()
+    {
         $title = 'Data Rumah';
         $rumah = DB::table('rumah')
-        -> select('rumah.id','rumah.nama','rumah.tipe','rumah.deskripsi')
-        -> orderBy('rumah.nama', 'asc')
-        -> paginate(5);
+            ->select('rumah.id', 'rumah.nama', 'rumah.tipe', 'rumah.deskripsi')
+            ->orderBy('rumah.nama', 'asc')
+            ->paginate(5);
         return view('Rumah.data', compact('rumah', 'title'));
     }
 
-    public function cari(Request $request){
+    public function cari(Request $request)
+    {
         $cari = $request->cari;
 
         $rumah = DB::table('Rumah')
-        -> select('rumah.id','rumah.nama','rumah.tipe')
-        -> where('nama','like',"%".$cari."%")
-        -> paginate(5);
+            ->select('rumah.id', 'rumah.nama', 'rumah.tipe')
+            ->where('nama', 'like', "%" . $cari . "%")
+            ->paginate(5);
 
         Session::flash('info', 'Data berhasil ditemukan !!');
 
         return view('Rumah.data', compact('rumah'));
     }
 
-    public function form(){
+    public function form()
+    {
         $title = 'Form Data Rumah';
         return view('Rumah.form', compact('title'));
     }
 
-    public function tambah(Request $request){
+    public function tambah(Request $request)
+    {
         $request->validate([
             'nama'          => 'required|unique:rumah,nama',
             'tipe'          => 'required',
@@ -51,15 +55,14 @@ class RumahController extends Controller
 
         if ($request->hasfile('gambar')) {
             $foto         = $request->file('gambar');
-            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $new_foto     = rand() . '.' . $foto->getClientOriginalExtension();
             $foto->move(public_path('guest/images/demo'), $new_foto);
             $rumah->gambar = $new_foto;
         }
 
         $rumah->save();
 
-        Session::flash('success', 'Data berhasil disimpan !!');
-
+        \Session::flash('sukses', 'Data berhasil disimpan !!');
         return redirect('/dataRumah');
     }
 
@@ -67,9 +70,9 @@ class RumahController extends Controller
     {
         $title = 'Edit Data Rumah';
         $rumah = DB::table('Rumah')
-        -> select('rumah.id','rumah.nama','rumah.tipe','rumah.deskripsi','rumah.gambar')
-        -> where('rumah.id','=',$id)
-        -> first();
+            ->select('rumah.id', 'rumah.nama', 'rumah.tipe', 'rumah.deskripsi', 'rumah.gambar')
+            ->where('rumah.id', '=', $id)
+            ->first();
 
         return view('Rumah.edit', compact('rumah', 'title'));
     }
@@ -79,7 +82,7 @@ class RumahController extends Controller
         $rumah = Rumah::findOrFail($id);
 
         $request->validate([
-            'nama'          => 'required|unique:rumah,nama,'.$rumah->id,
+            'nama'          => 'required|unique:rumah,nama,' . $rumah->id,
             'tipe'          => 'required',
             'deskripsi'     => 'required',
             'gambar'        => 'required|mimes:jpg,jpeg,png',
@@ -92,7 +95,7 @@ class RumahController extends Controller
 
         if ($request->hasfile('gambar')) {
             $foto         = $request->file('gambar');
-            $new_foto     = rand().'.'.$foto->getClientOriginalExtension();
+            $new_foto     = rand() . '.' . $foto->getClientOriginalExtension();
             $foto->move(public_path('guest/images/demo'), $new_foto);
             $rumah->gambar = $new_foto;
         }
