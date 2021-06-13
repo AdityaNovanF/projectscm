@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pesanan;
 use App\Barang;
 use Illuminate\Http\Request;
+use Auth;
 
 class Pesanan_controller extends Controller
 {
@@ -61,6 +62,7 @@ class Pesanan_controller extends Controller
                 'jumlah' => $request->jumlah,
                 'total' => ($request->jumlah * $barang->harga),
                 'created_at' => date('Y-m-d H:1:s'),
+                'id_kpem' => Auth::user()->id,
             ]);
             Barang::whereId($request->barang_id)->update([
                 'stock' => ($barang->stock - $request->jumlah),

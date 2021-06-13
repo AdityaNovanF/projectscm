@@ -45,4 +45,7 @@ class User extends Authenticatable
     public function KS(){
         return $this->hasMany('App/KritikSaran');
     }
+    public function pesanan(){
+        return $this->hasMany('App/Pesanan');
+    }
 }
