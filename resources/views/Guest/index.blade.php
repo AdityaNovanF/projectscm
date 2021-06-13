@@ -37,20 +37,20 @@
         <ul class="nospace group center">
             <li class="one_third first">
                 <article><i class="btmspace-30 fa-6x fas fa-hands-helping"></i>
-                    <h6 class="heading">Mauris eu enim quisque</h6>
-                    <p class="btmspace-30">Dignissim neque et consectetuer dapibus magna elit vehicula libero vel interdum dolor neque in lacus pellentesque.</p>
+                    <h6 class="heading">Dibangun Dengan Bahan Yang Berkualitas Tinggi</h6>
+                    <p class="btmspace-30">Dengan bekerjasama bersama perusahaan property terbaik di daerah Jember dan sekitarnya.</p>
                 </article>
             </li>
             <li class="one_third">
                 <article><i class="btmspace-30 fa-6x fas fa-gem"></i>
-                    <h6 class="heading">Lectus magna laoreet</h6>
-                    <p class="btmspace-30">Sit amet tincidunt vel cursus a dui suspendisse in ante cras pede sed et erat cum sociis natoque penatibus et magnis.</p>
+                    <h6 class="heading">Memudahkan Anda Memiliki Rumah Impian</h6>
+                    <p class="btmspace-30">Dengan banyak tipe rumah yang kami sediakan dengan berbagai model yang elegan dan modern.</p>
                 </article>
             </li>
             <li class="one_third">
                 <article><i class="btmspace-30 fa-6x fas fa-volleyball-ball"></i>
-                    <h6 class="heading">Dis parturient montes</h6>
-                    <p class="btmspace-30">Nascetur ridiculus mus integer congue elit non semper laoreet lectus orci posuere nisl id tempor lacus felis ac.</p>
+                    <h6 class="heading">Menjadi Hunian Ternyaman Untuk Keluarga anda</h6>
+                    <p class="btmspace-30">Didesign dengan sesuai kebutuhan Anda dan keluarga sehingga menjadi hunian ternyaman.</p>
                 </article>
             </li>
         </ul>
