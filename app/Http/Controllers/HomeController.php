@@ -129,7 +129,7 @@ class HomeController extends Controller
         }
         $kpr->save();
 
-        \Session::flash('sukses', 'Data berhasil disimpan !!');
+        Session::flash('sukses', 'Data berhasil disimpan !!');
 
         return redirect('/landing');
     }
