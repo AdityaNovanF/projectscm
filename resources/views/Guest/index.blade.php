@@ -109,7 +109,7 @@
                 @csrf
                 <fieldset>
                     <input type="text" name="nama" value="" placeholder="Nama">
-                    <textarea type="text" name="nama" id="" cols="60%" rows="10" placeholder="Kritik dan Saran"></textarea>
+                    <textarea type="text" name="isi" id="" cols="60%" rows="10" placeholder="Kritik dan Saran"></textarea>
                     <button type="submit" value="submit">Submit</button>
                 </fieldset>
             </form>
