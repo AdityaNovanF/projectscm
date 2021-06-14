@@ -91,6 +91,20 @@
         <div>
             <h6 class="heading">Kritik dan Saran</h6>
             <p class="btmspace-30">Kirimkan kritik dan saran anda kepada kami</p>
+            @if(session('sukses'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <i class="fa fa-check-circle"></i> Kritik dan saran anda berhasil terkirim
+            </div><br>
+            @endif
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <form role="form" action="{{ url('/kritikSaran/tambah') }}" method='post' enctype="multipart/form-data">
                 @csrf
                 <fieldset>
